@@ -1,19 +1,22 @@
 #35. Search Insert Position
 class Solution(object):
-    def searchInsert(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
+    def binarysearch(arr, n, k):
+		# code here
         lo=0
-        hi=len(nums)-1
-        while(lo<=hi):
+        hi=len(arr)-1
+        while(lo<hi):
             mid=lo+(hi-lo)//2
-            if target==nums[mid]:
+            if k==arr[mid]:
                 return mid
-            elif target>nums[mid]:
+            elif k>arr[mid]:
                 lo=mid+1
             else:
-                hi=mid-1
-        return lo
+                hi=mid-1    
+        if arr[lo]!=k :
+            return -1
+        elif arr[hi]!=k:
+            return -1
+        elif arr[lo]==k:
+            return lo
+        
+        
